@@ -18,6 +18,9 @@
 		71DF981A16C2986E0034C166 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71DF981916C2986E0034C166 /* Default-568h@2x.png */; };
 		71DF981D16C2986E0034C166 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF981C16C2986E0034C166 /* ViewController.m */; };
 		71DF982016C2986E0034C166 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DF981E16C2986E0034C166 /* ViewController.xib */; };
+		71DF982916C29B4A0034C166 /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = 71DF982616C29B4A0034C166 /* test1.png */; };
+		71DF982A16C29B4A0034C166 /* test2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 71DF982716C29B4A0034C166 /* test2.jpeg */; };
+		71DF982B16C29B4A0034C166 /* test3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71DF982816C29B4A0034C166 /* test3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		71DF981B16C2986E0034C166 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		71DF981C16C2986E0034C166 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		71DF981F16C2986E0034C166 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		71DF982616C29B4A0034C166 /* test1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1.png; sourceTree = "<group>"; };
+		71DF982716C29B4A0034C166 /* test2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test2.jpeg; sourceTree = "<group>"; };
+		71DF982816C29B4A0034C166 /* test3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,9 @@
 		71DF980916C2986D0034C166 /* TransformTest */ = {
 			isa = PBXGroup;
 			children = (
+				71DF982616C29B4A0034C166 /* test1.png */,
+				71DF982716C29B4A0034C166 /* test2.jpeg */,
+				71DF982816C29B4A0034C166 /* test3.jpg */,
 				71DF981216C2986E0034C166 /* AppDelegate.h */,
 				71DF981316C2986E0034C166 /* AppDelegate.m */,
 				71DF981B16C2986E0034C166 /* ViewController.h */,
@@ -163,6 +172,9 @@
 				71DF981816C2986E0034C166 /* Default@2x.png in Resources */,
 				71DF981A16C2986E0034C166 /* Default-568h@2x.png in Resources */,
 				71DF982016C2986E0034C166 /* ViewController.xib in Resources */,
+				71DF982916C29B4A0034C166 /* test1.png in Resources */,
+				71DF982A16C29B4A0034C166 /* test2.jpeg in Resources */,
+				71DF982B16C29B4A0034C166 /* test3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
