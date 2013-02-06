@@ -12,10 +12,13 @@
 
 - (IBAction)clickImage:(UIButton *)sender;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *imageViews;
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    CGRect _originalRect;
+}
 
 - (void)viewDidLoad
 {
@@ -33,24 +36,26 @@
 
 - (IBAction)clickImage:(UIButton *)sender {
 
-    CGRect fromRect = sender.frame;
-    CGRect toRect = CGRectMake(10.0f, 10.0f, 300.0f, 200.0f);
+    _originalRect = sender.frame;
     
-    UIImageView *testImageView = [[UIImageView alloc] initWithImage:[sender imageForState:UIControlStateNormal]];
-    testImageView.backgroundColor = [UIColor brownColor];
+    CGFloat aspect = sender.frame.size.width / 300.0f;
+    CGRect toRect = CGRectMake(10.0f, 10.0f, 300.0f, sender.frame.size.height / aspect);
+    
+    UIImage *image = [_imageViews[[_buttons indexOfObject:sender]] image];
+    
+    UIImageView *testImageView = [[UIImageView alloc] initWithImage:image];
+    //testImageView.backgroundColor = [UIColor brownColor];
     testImageView.contentMode = UIViewContentModeScaleAspectFit;
     testImageView.tag = 100;
     
-    CGAffineTransform transfrom = [self translatedAndScaledTransformUsingViewRect:toRect fromRect:fromRect];
+    CGAffineTransform transfrom = [self translatedAndScaledTransformUsingViewRect:toRect fromRect:_originalRect];
     
-    testImageView.frame = fromRect;
+    testImageView.frame = _originalRect;
     [self.view addSubview:testImageView];
     
-    [UIView animateWithDuration:2 animations:^{
+    [UIView animateWithDuration:1 animations:^{
         testImageView.transform = transfrom;
     }];
-    
-    
     
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self.view addGestureRecognizer:recognizer];
@@ -60,34 +65,24 @@
 - (void)handleTap:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
         UIView *testView = [self.view viewWithTag:100];
-        [testView removeFromSuperview];
         [self.view removeGestureRecognizer:sender];
-        [_buttons setValue:@YES forKey:@"enabled"];
+        
+        
+        [UIView animateWithDuration:1 animations:^{
+            testView.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [testView removeFromSuperview];
+            [_buttons setValue:@YES forKey:@"enabled"];
+        }];
     }
 }
 
 - (CGAffineTransform)translatedAndScaledTransformUsingViewRect:(CGRect)viewRect fromRect:(CGRect)fromRect {
-    float xtransl = viewRect.origin.x - fromRect.origin.x;
-    float ytransl = viewRect.origin.y - fromRect.origin.y;
-    //float xScale = viewRect.size.width / fromRect.size.width;
-    //float yScale = viewRect.size.height / fromRect.size.height;
     
-    NSLog(@"xtransl %f, ytransl %f", xtransl, ytransl);
-    
-    
-    CGAffineTransform rectScale = CGAffineTransformMakeScale(viewRect.size.width / fromRect.size.width,
-                                                             viewRect.size.height / fromRect.size.height);
-    
-    CGPoint orig = CGPointMake(fromRect.origin.x, fromRect.origin.y);
-    CGPoint newOrig = CGPointApplyAffineTransform(orig, rectScale);
-    
-    
-    return CGAffineTransformMake(viewRect.size.width / fromRect.size.width,
-                                 0,
-                                 0,
-                                 viewRect.size.height / fromRect.size.height,
-                                 viewRect.origin.x - newOrig.x,
-                                 viewRect.origin.y - newOrig.y);
+    CGSize scales = CGSizeMake(viewRect.size.width/fromRect.size.width, viewRect.size.height/fromRect.size.height);
+    CGPoint offset = CGPointMake(CGRectGetMidX(viewRect) - CGRectGetMidX(fromRect), CGRectGetMidY(viewRect) - CGRectGetMidY(fromRect));
+    return CGAffineTransformMake(scales.width, 0, 0, scales.height, offset.x, offset.y);
+
 }
 
     
