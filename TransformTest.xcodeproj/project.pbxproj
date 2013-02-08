@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71BD4AC716C51037008BDE86 /* UIView+Transformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BD4AC616C51037008BDE86 /* UIView+Transformation.m */; };
 		71DF980416C2986D0034C166 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF980316C2986D0034C166 /* UIKit.framework */; };
 		71DF980616C2986D0034C166 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF980516C2986D0034C166 /* Foundation.framework */; };
 		71DF980816C2986D0034C166 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF980716C2986D0034C166 /* CoreGraphics.framework */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71BD4AC516C51037008BDE86 /* UIView+Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Transformation.h"; sourceTree = "<group>"; };
+		71BD4AC616C51037008BDE86 /* UIView+Transformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Transformation.m"; sourceTree = "<group>"; };
 		71DF980016C2986D0034C166 /* TransformTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransformTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DF980316C2986D0034C166 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		71DF980516C2986D0034C166 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +92,8 @@
 		71DF980916C2986D0034C166 /* TransformTest */ = {
 			isa = PBXGroup;
 			children = (
+				71BD4AC516C51037008BDE86 /* UIView+Transformation.h */,
+				71BD4AC616C51037008BDE86 /* UIView+Transformation.m */,
 				71DF982616C29B4A0034C166 /* test1.png */,
 				71DF982716C29B4A0034C166 /* test2.jpeg */,
 				71DF982816C29B4A0034C166 /* test3.jpg */,
@@ -188,6 +193,7 @@
 				71DF981016C2986D0034C166 /* main.m in Sources */,
 				71DF981416C2986E0034C166 /* AppDelegate.m in Sources */,
 				71DF981D16C2986E0034C166 /* ViewController.m in Sources */,
+				71BD4AC716C51037008BDE86 /* UIView+Transformation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +316,7 @@
 				71DF982516C2986E0034C166 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
